@@ -1,0 +1,251 @@
+.worksOuter {
+  padding-top: 10rem;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.glowOrb {
+  position: absolute;
+  top: 10%;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(254, 130, 56, 0.1) 0%, transparent 70%);
+  filter: blur(60px);
+  z-index: -1;
+  animation: float 10s infinite ease-in-out alternate;
+}
+
+@keyframes float {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-30px, 50px); }
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 6rem;
+  max-width: 800px;
+}
+
+.title {
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  opacity: 0.7;
+  line-height: 1.6;
+}
+
+.gridSection {
+  margin-bottom: 8rem;
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 3rem;
+}
+
+.projectCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 32px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.projectCard:hover {
+  transform: translateY(-12px);
+  border-color: rgba(254, 130, 56, 0.4);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+}
+
+.imageWrapper {
+  position: relative;
+  height: 280px;
+  background: #111;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #111 0%, #222 100%);
+  position: relative;
+}
+
+.cardOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.projectCard:hover .cardOverlay {
+  opacity: 1;
+}
+
+.cardActions {
+  display: flex;
+  gap: 1.5rem;
+  transform: translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.projectCard:hover .cardActions {
+  transform: translateY(0);
+}
+
+.actionBtn {
+  background: #fff;
+  color: #000;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.actionBtn:hover {
+  background: var(--primary);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.cardContent {
+  padding: 2.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.category {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary);
+  opacity: 0.8;
+}
+
+
+.projectTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.projectDesc {
+  font-size: 1rem;
+  opacity: 0.6;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* CTA Banner */
+.ctaBanner {
+  background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+              radial-gradient(circle at top right, rgba(254, 130, 56, 0.2), transparent);
+  padding: 6rem 0;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bannerInner h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.bannerInner p {
+  font-size: 1.2rem;
+  opacity: 0.7;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+}
+
+.largeCta {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 1.25rem 3rem;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.largeCta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(254, 130, 56, 0.3);
+  filter: brightness(1.1);
+}
+
+@media (max-width: 768px) {
+  .projectGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero {
+    margin-bottom: 4rem;
+  }
+  
+  .title {
+    font-size: 3rem;
+  }
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.projectCard:hover .projectImage {
+  transform: scale(1.1);
+}
+
+.noImage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  color: rgba(255,255,255,0.2);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.urlDisplay {
+  font-size: 0.75rem;
+  opacity: 0.4;
+  font-family: monospace;
+}

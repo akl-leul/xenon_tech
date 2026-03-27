@@ -1,0 +1,155 @@
+.floatingWrapper {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.show {
+  transform: translateX(0) scale(1);
+  opacity: 1;
+}
+
+.hide {
+  transform: translateX(120%) scale(0.8);
+  opacity: 0;
+}
+
+.ctaCard {
+  background: #000;
+  border: 2px solid #ff3e3e;
+  border-radius: 20px;
+  padding: 1.5rem;
+  width: 280px;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(255, 62, 62, 0.2),
+              inset 0 0 20px rgba(255, 62, 62, 0.1);
+  overflow: hidden;
+  color: #fff;
+  animation: float 4s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  color: #fff;
+  opacity: 0.4;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.closeBtn:hover {
+  opacity: 1;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #ff3e3e;
+  color: #fff;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.sparkle {
+  color: #ffd700;
+  animation: spin 3s infinite linear;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.promoText {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 900;
+  font-style: italic;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(255, 62, 62, 0.5);
+}
+
+.mainTitle {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+
+.callButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: #fff;
+  color: #000;
+  padding: 0.75rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.callButton:hover {
+  background: #ff3e3e;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 62, 62, 0.4);
+}
+
+.timerBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 62, 62, 0.2);
+}
+
+.timerFill {
+  height: 100%;
+  background: #ff3e3e;
+  width: 100%;
+  animation: shrink 120s linear forwards;
+}
+
+@keyframes shrink {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+@media (max-width: 480px) {
+  .floatingWrapper {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+  }
+  
+  .ctaCard {
+    width: 100%;
+  }
+}
