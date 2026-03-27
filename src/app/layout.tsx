@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import { ConvexClientProvider } from "@/components/ConvexClientProvider";
 import ClientWrapper from "@/components/ClientWrapper";
 
 const poppins = Poppins({
@@ -133,11 +132,9 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning>
-        <ConvexClientProvider>
-          <ClientWrapper>
-            {children}
-          </ClientWrapper>
-        </ConvexClientProvider>
+        <ClientWrapper>
+          {children}
+        </ClientWrapper>
       </body>
     </html>
   );

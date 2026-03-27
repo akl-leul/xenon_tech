@@ -5,14 +5,11 @@ import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import styles from './page.module.css';
 import { ArrowLeft, Send, CheckCircle, Smartphone, Globe, BarChart3, Clock } from 'lucide-react';
-import { useMutation } from 'convex/react';
-import { api } from '../../../convex/_generated/api';
 
 function RegisterForm() {
   const searchParams = useSearchParams();
   const packParam = searchParams.get('pack');
   
-  const createSubmission = useMutation(api.submissions.createSubmission);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -40,7 +37,9 @@ function RegisterForm() {
     setLoading(true);
     
     try {
-      await createSubmission(formData);
+      // Simulation of submission since backend is removed
+      console.log('Submission data:', formData);
+      await new Promise(resolve => setTimeout(resolve, 1000));
       setSubmitted(true);
     } catch (error) {
       console.error('Submission failed:', error);
